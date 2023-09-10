@@ -10,3 +10,12 @@ Content-Type: application/json
     "password": "pswrd"
 
 }
+//
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+//{
+    "name": "Ben",
+    "password": "pswrd"
+
+}

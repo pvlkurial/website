@@ -7,11 +7,16 @@
     <title>Sign in</title>
 </head>
 <body>
-    <div class="container-xxl">100% wide until extra extra large breakpoint
-    <h2>Sign in</h2>
-    <h3>Username</h3>
-    <h3>Password</h3>
-    <p>Don't have an account? <a href="register.html">Register here</a></p>
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <input type="submit" value="Login">
+    </form>
     
     
     </div>
