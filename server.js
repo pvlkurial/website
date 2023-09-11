@@ -1,30 +1,20 @@
 const express = require('express');
-const app = express();
 const bcrypt = require('bcrypt');
+const path = require('path');
+const router = require('./public/routes/login');
+const app = express();
 
-app.use(express.json())
+app.use(express.json());
+// view engine setup
+app.set('views', path.join(__dirname + "/public", 'views'));
+app.set("view engine", "ejs");
 
-const users = [];
 
-app.get('/users', (req, res) => {
-    res.json(users)    
-})
+app.use(express.static(path.join(__dirname, 'public')));
+app.get("/",(req, res) =>{
+    res.render('index');
+});
 
-app.post('/users',  async (req, res) => {
-    try{
-        const salt = await bcrypt.genSalt();
-        const hash = await bcrypt.hash(req.body.password, salt);
-        console.log(hash)
-        console.log(salt)
-  
-        const user = {name: req.body.name, password: req.body.hash};   
-        users.push(user);
-        res.status(201).send();
-    }
-    catch{
-        res.status(500).send();
-
-    }
-})
+app.use('/login', router);
 
 app.listen(3000)
