@@ -1,12 +1,12 @@
-GET http://localhost:3000/users
+GET http://localhost:3000/auth/signup
 
 ###
 
-POST http://localhost:3000/users
+POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "name": "Ben",
-    "password": "pswrd"
+    "email": "Bendssulum@hotmail.com",
+    "password": "pswrd66"
 
 }

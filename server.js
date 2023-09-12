@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const path = require('path');
-const router = require('./public/routes/login');
+const auth = require('./public/routes/auth');
 const app = express();
 
 app.use(express.json());
@@ -15,6 +15,6 @@ app.get("/",(req, res) =>{
     res.render('index');
 });
 
-app.use('/login', router);
+app.use('/auth', auth);
 
 app.listen(3000)
