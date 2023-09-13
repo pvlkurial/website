@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const auth = require('./public/routes/auth');
+const events = require('./public/routes/events');
 const app = express();
 
 app.use(express.json());
@@ -16,5 +17,7 @@ app.get("/",(req, res) =>{
 });
 
 app.use('/auth', auth);
+
+app.use('/events', events);
 
 app.listen(3000)
